@@ -32,6 +32,8 @@ namespace Magical_Item_Generator
         string[] Combinations = { "AVN", "VERB", "AN", "VN", "N", "ADJ", "AV", "PROT", "NN", "ANN", "SLAY" };
         string[] KillingWord = { "murdering", "killing", "slaying", "slaughtering", "extermination", "beheading", "butchery", "assasination" };
         string[] DownfallWord = { "bane", "undoing", "ruin", "downfall", "destruction", "bane", "end", "ruination", "disgrace", "nemesis" };
+        string[] Containers = { "vial", "bottle", "potion", "flask", "ampoule", "ewer", "jar", "jug", "cup", "mug", "dose", "can", "chalice", "copita", "bowl", "goblet", "phial", "beaker", "carafe", "cruet", "decanter", "flagon", "gourd", "horn", "pewter", "porringer", "pot", "tankard", "tumbler", "urn", "vase", "vessel", "glass", "cask", "keg", "barrel", "canteen", "skin", "waterskin", "wineskin", "flagon" };
+        string[] Liquids = { "juice", "sap", "fluid", "solution", "broth", "goop", "nectar", "elixir", "resin", "infusion", "essence", "brew", "drink", "concotion", "mixture", "beverage", "extract", "jelly", "soup", "oil", "syrup", "tonic", "tincture", "serum", "dew", "salve", "cream", "paste", "ointment", "balm", "lotion", "gel", "emulsion" };
         string[] Qualities = { Common, Fine, Magical, Rare, Legendary, SetItem, Unique };
         string[] Adjectives = [];
         string[] Verbs = [];
@@ -108,6 +110,7 @@ namespace Magical_Item_Generator
             if (chkWeapons.Checked) { types = types.Concat(WeaponTypes).ToList(); }
             if (chkArmor.Checked) { types = types.Concat(ArmorTypes).ToList(); }
             if (chkMisc.Checked) { types = types.Concat(MiscTypes).ToList(); }
+            if (chkPotions.Checked) { types = types.Concat(Containers).ToList(); }
 
             if (types.Count == 0) { types.Add("sword"); }
 
@@ -163,6 +166,8 @@ namespace Magical_Item_Generator
             string SetType = PickRandom(SetTypes);
             string KillWord = PickRandom(KillingWord);
             string Downfall = PickRandom(DownfallWord);
+            string Container = PickRandom(Containers);
+            string Liquid = PickRandom(Liquids);
 
             VerbIndex = random.Next(PastVerbs.Length);
 
@@ -224,6 +229,11 @@ namespace Magical_Item_Generator
                     break;
             }
 
+            if (Containers.Any(ItemType.Contains))
+            {
+                ItemOutput = ItemOutput + " " + Liquid.Capitalize();
+            }
+
             if (ItemQuality == String.Format("[{0,-9}] ", SetItem))
             {
                 string[] specialCases = { "AN", "ADJ", "AV", "VERB" };
@@ -254,6 +264,11 @@ namespace Magical_Item_Generator
         private void btnClear_Click(object sender, EventArgs e)
         {
             listBoxItems.Items.Clear();
+        }
+
+        private void chkPotions_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

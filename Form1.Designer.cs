@@ -106,13 +106,15 @@
             // chkPotions
             // 
             chkPotions.AutoSize = true;
-            chkPotions.Enabled = false;
+            chkPotions.Checked = true;
+            chkPotions.CheckState = CheckState.Checked;
             chkPotions.Location = new Point(369, 40);
             chkPotions.Name = "chkPotions";
             chkPotions.Size = new Size(66, 19);
             chkPotions.TabIndex = 6;
             chkPotions.Text = "Potions";
             chkPotions.UseVisualStyleBackColor = true;
+            chkPotions.CheckedChanged += chkPotions_CheckedChanged;
             // 
             // chkMisc
             // 
