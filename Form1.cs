@@ -65,6 +65,8 @@ namespace Magical_Item_Generator
 
             if (PastVerbs.Length == IngVerbs.Length && PastVerbs.Length == Verbs.Length) {; }
             else { MessageBox.Show("\nVerb files mismatched. Make sure all files are present and correct. Ending Program.\n"); Application.Exit(); }
+
+            btnGenerate.Focus();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -262,7 +264,7 @@ namespace Magical_Item_Generator
                 ItemOutput = ItemOutput + " " + Liquid.Capitalize();
             }
 
-            if (ItemQuality == String.Format("[{0,-9}] ", SetItem))
+            if (ItemQuality == String.Format("[{0,-11}] ", SetItem))
             {
                 string[] specialCases = { "AN", "ADJ", "AV", "VERB" };
                 SetName = $" ({SetType} of {SetTitle})";
@@ -281,10 +283,9 @@ namespace Magical_Item_Generator
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            ItemTypes = SetItemTypes();
-
             for (int i = 0; i < nudNumItems.Value; i++)
             {
+                ItemTypes = SetItemTypes();
                 listBoxItems.Items.Add(GenerateItems(1));
             }
         }
@@ -336,6 +337,92 @@ namespace Magical_Item_Generator
         private void gBoxSettings_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void listBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxItems_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBoxItems.SelectedItems.Count > 0)
+            {
+                string itmCurrent = listBoxItems.Items[listBoxItems.SelectedIndex].ToString();
+                System.Windows.Forms.Clipboard.SetText(itmCurrent);
+            }
+        }
+
+        private void listBoxItems_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Double click to copy line to clipboard.");
+        }
+
+        private void btnGenerate_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Click to generate item(s).");
+        }
+
+        private void SetStatus(string status) { tooltipLabel.Text = status; }
+
+        private void btnClear_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Click to clear all generated items.");
+        }
+
+        private void Form1_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Ready.");
+        }
+
+        private void chkWeapons_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Set types of items to generate.");
+        }
+
+        private void chkArmor_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Set types of items to generate.");
+        }
+
+        private void chkMisc_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Set types of items to generate.");
+        }
+
+        private void chkPotions_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Set types of items to generate.");
+        }
+
+        private void gBoxResults_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Ready.");
+        }
+
+        private void gBoxSettings_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Ready.");
+        }
+
+        private void btnQuit_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Click to quit application.");
+        }
+
+        private void label3_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Change number of items to create per click.");
         }
     }
 }
