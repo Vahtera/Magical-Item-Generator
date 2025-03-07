@@ -24,6 +24,7 @@ namespace Magical_Item_Generator
         const string SetItem = "Set";
         const int CreateCount = 20;
 
+        List<string> ItemClasses = new List<string>();
         string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance" };
         string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel" };
         string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet" };
@@ -35,6 +36,7 @@ namespace Magical_Item_Generator
         string[] Containers = { "vial", "bottle", "potion", "flask", "ampoule", "ewer", "jar", "jug", "cup", "mug", "dose", "can", "chalice", "copita", "bowl", "goblet", "phial", "beaker", "carafe", "cruet", "decanter", "flagon", "gourd", "horn", "pewter", "porringer", "pot", "tankard", "tumbler", "urn", "vase", "vessel", "glass", "cask", "keg", "barrel", "canteen", "skin", "waterskin", "wineskin", "flagon" };
         string[] Liquids = { "juice", "sap", "fluid", "solution", "broth", "goop", "nectar", "elixir", "resin", "infusion", "essence", "brew", "drink", "concotion", "mixture", "beverage", "extract", "jelly", "soup", "oil", "syrup", "tonic", "tincture", "serum", "dew", "salve", "cream", "paste", "ointment", "balm", "lotion", "gel", "emulsion" };
         string[] Qualities = { Common, Fine, Magical, Rare, Legendary, SetItem, Unique };
+        string[] LiquidQualities = { "Diluted", "Mild", "Moderate", "Potent", "Strong", "Very Strong", "Extreme" };
         string[] Adjectives = [];
         string[] Verbs = [];
         string[] Nouns = [];
@@ -106,13 +108,35 @@ namespace Magical_Item_Generator
         private string[] SetItemTypes()
         {
             List<string> types = new List<string>();
+            ItemClasses = [];
 
+            /*
             if (chkWeapons.Checked) { types = types.Concat(WeaponTypes).ToList(); }
             if (chkArmor.Checked) { types = types.Concat(ArmorTypes).ToList(); }
             if (chkMisc.Checked) { types = types.Concat(MiscTypes).ToList(); }
             if (chkPotions.Checked) { types = types.Concat(Containers).ToList(); }
+            */
 
-            if (types.Count == 0) { types.Add("sword"); }
+            if (chkWeapons.Checked) { ItemClasses.Add("weapon"); }
+            if (chkArmor.Checked) { ItemClasses.Add("armor"); }
+            if (chkMisc.Checked) { ItemClasses.Add("misc"); }
+            if (chkPotions.Checked) { ItemClasses.Add("potion"); }
+
+            string ItemClass = PickRandom(ItemClasses.ToArray());
+
+            switch (ItemClass)
+            {
+                case "weapon":
+                    types = types.Concat(WeaponTypes).ToList(); break;
+                case "misc":
+                    types = types.Concat(MiscTypes).ToList(); break;
+                case "armor":
+                    types = types.Concat(ArmorTypes).ToList(); break;
+                case "potion":
+                    types = types.Concat(Containers).ToList(); break;
+                default:
+                    types.Add("ERROR"); break;
+            }
 
             return types.ToArray();
         }
@@ -157,12 +181,14 @@ namespace Magical_Item_Generator
         string GenerateItems(int row)
         {
             string ItemType = PickRandom(ItemTypes);
+            string ItemClass = PickRandom(ItemClasses.ToArray());
             string VerbType = PickRandom(VerbTypes);
             string Adjective = PickRandom(Adjectives);
             string Noun = PickRandom(Nouns);
             string Noun2 = PickRandom(Nouns);
             string Combination = PickRandom(Combinations);
-            string ItemQuality = String.Format("[{0,-9}] ", PickRandom(Qualities));
+            int RaritySeverity = random.Next(Qualities.Length);
+            string ItemQuality = String.Format("[{0,-11}] ", Qualities[RaritySeverity]);
             string SetType = PickRandom(SetTypes);
             string KillWord = PickRandom(KillingWord);
             string Downfall = PickRandom(DownfallWord);
@@ -180,6 +206,8 @@ namespace Magical_Item_Generator
             string FinalVerb = ChooseVerbType(Verb, IngVerb, PastVerb, VerbType);
             string PluralNoun = MakePlural(Noun);
             string PluralNoun2 = MakePlural(Noun2);
+
+            if (Containers.Any(ItemType.Contains)) { ItemQuality = String.Format("[{0,-11}] ", LiquidQualities[RaritySeverity]); }
 
             switch (Combination)
             {
@@ -260,13 +288,52 @@ namespace Magical_Item_Generator
                 listBoxItems.Items.Add(GenerateItems(1));
             }
         }
-
+        private void CheckGeneratedTypes()
+        {
+            if (!chkArmor.Checked & !chkMisc.Checked & !chkWeapons.Checked & !chkPotions.Checked) { btnGenerate.Enabled = false; }
+            else { btnGenerate.Enabled = true; }
+        }
         private void btnClear_Click(object sender, EventArgs e)
         {
             listBoxItems.Items.Clear();
         }
 
         private void chkPotions_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void chkWeapons_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void chkArmor_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void chkMisc_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void chkMisc_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void chkArmor_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void chkWeapons_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CheckGeneratedTypes();
+        }
+
+        private void gBoxSettings_Enter(object sender, EventArgs e)
         {
 
         }

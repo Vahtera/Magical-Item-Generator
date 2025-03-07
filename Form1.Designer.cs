@@ -92,6 +92,7 @@
             gBoxSettings.TabIndex = 4;
             gBoxSettings.TabStop = false;
             gBoxSettings.Text = "Settings";
+            gBoxSettings.Enter += gBoxSettings_Enter;
             // 
             // label3
             // 
@@ -127,6 +128,7 @@
             chkMisc.TabIndex = 5;
             chkMisc.Text = "Misc Items";
             chkMisc.UseVisualStyleBackColor = true;
+            chkMisc.CheckedChanged += chkMisc_CheckedChanged_1;
             // 
             // chkArmor
             // 
@@ -139,6 +141,7 @@
             chkArmor.TabIndex = 4;
             chkArmor.Text = "Armor";
             chkArmor.UseVisualStyleBackColor = true;
+            chkArmor.CheckedChanged += chkArmor_CheckedChanged_1;
             // 
             // chkWeapons
             // 
@@ -151,6 +154,7 @@
             chkWeapons.TabIndex = 3;
             chkWeapons.Text = "Weapons";
             chkWeapons.UseVisualStyleBackColor = true;
+            chkWeapons.CheckedChanged += chkWeapons_CheckedChanged_1;
             // 
             // label2
             // 
