@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnGenerate = new Button();
             listBoxItems = new ListBox();
             btnClear = new Button();
@@ -40,10 +41,10 @@
             chkWeapons = new CheckBox();
             label2 = new Label();
             gBoxResults = new GroupBox();
+            btnAbout = new Button();
             btnQuit = new Button();
             statusStrip = new StatusStrip();
             tooltipLabel = new ToolStripStatusLabel();
-            btnAbout = new Button();
             gBoxSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumItems).BeginInit();
             gBoxResults.SuspendLayout();
@@ -205,6 +206,16 @@
             gBoxResults.Text = "Generated Items:";
             gBoxResults.MouseHover += gBoxResults_MouseHover;
             // 
+            // btnAbout
+            // 
+            btnAbout.Location = new Point(624, 347);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(75, 23);
+            btnAbout.TabIndex = 5;
+            btnAbout.Text = "About";
+            btnAbout.UseVisualStyleBackColor = true;
+            btnAbout.Click += btnAbout_Click;
+            // 
             // btnQuit
             // 
             btnQuit.Location = new Point(705, 347);
@@ -231,16 +242,6 @@
             tooltipLabel.Size = new Size(39, 17);
             tooltipLabel.Text = "Ready";
             // 
-            // btnAbout
-            // 
-            btnAbout.Location = new Point(624, 347);
-            btnAbout.Name = "btnAbout";
-            btnAbout.Size = new Size(75, 23);
-            btnAbout.TabIndex = 5;
-            btnAbout.Text = "About";
-            btnAbout.UseVisualStyleBackColor = true;
-            btnAbout.Click += btnAbout_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -249,6 +250,7 @@
             Controls.Add(statusStrip);
             Controls.Add(gBoxResults);
             Controls.Add(gBoxSettings);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Magical Item Generator";
             Load += Form1_Load;
