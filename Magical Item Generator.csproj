@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Copyright>Copyright © 2025 Anna Vahtera</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

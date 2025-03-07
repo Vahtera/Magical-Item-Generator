@@ -239,6 +239,7 @@
             btnAbout.TabIndex = 5;
             btnAbout.Text = "About";
             btnAbout.UseVisualStyleBackColor = true;
+            btnAbout.Click += btnAbout_Click;
             // 
             // Form1
             // 

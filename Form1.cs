@@ -27,7 +27,7 @@ namespace Magical_Item_Generator
         List<string> ItemClasses = new List<string>();
         string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance" };
         string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel", "earrings", "pin", "anklet", "wristband", "bracelet", "pendant", "necklace", "choker" };
-        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet", "corset", "belt"  };
+        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet", "corset", "belt" };
         string[] SetTypes = { "Vestments", "Clothes", "Attire", "Apparel", "Rags", "Garb", "Kit", "Outfit", "Trappings", "Instruments", "Gear", "Regalia", "Getup", "Ensemble", "Raiment", "Garments" };
         string[] VerbTypes = { "basic", "past", "ing" };
         string[] Combinations = { "AVN", "VERB", "AN", "VN", "N", "ADJ", "AV", "PROT", "NN", "ANN", "SLAY" };
@@ -416,6 +416,12 @@ namespace Magical_Item_Generator
         private void label3_MouseHover(object sender, EventArgs e)
         {
             SetStatus("Change number of items to create per click.");
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            AboutBox1 box = new AboutBox1();
+            box.ShowDialog();
         }
     }
 }

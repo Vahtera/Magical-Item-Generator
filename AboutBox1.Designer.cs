@@ -82,6 +82,7 @@
             // labelProductName
             // 
             labelProductName.Dock = DockStyle.Fill;
+            labelProductName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelProductName.Location = new Point(167, 0);
             labelProductName.Margin = new Padding(7, 0, 4, 0);
             labelProductName.MaximumSize = new Size(0, 20);
@@ -151,6 +152,7 @@
             okButton.Size = new Size(88, 27);
             okButton.TabIndex = 24;
             okButton.Text = "&OK";
+            okButton.Click += okButton_Click;
             // 
             // AboutBox1
             // 
@@ -164,11 +166,12 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AboutBox1";
-            Padding = new Padding(10, 10, 10, 10);
+            Padding = new Padding(10);
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "AboutBox1";
+            Load += AboutBox1_Load;
             tableLayoutPanel.ResumeLayout(false);
             tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
