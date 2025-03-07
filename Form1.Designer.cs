@@ -53,12 +53,14 @@
             // 
             // btnGenerate
             // 
+            btnGenerate.BackgroundImage = (Image)resources.GetObject("btnGenerate.BackgroundImage");
+            btnGenerate.BackgroundImageLayout = ImageLayout.Center;
+            btnGenerate.FlatStyle = FlatStyle.Flat;
             btnGenerate.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGenerate.Location = new Point(525, 11);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(256, 54);
             btnGenerate.TabIndex = 0;
-            btnGenerate.Text = "Generate";
             btnGenerate.UseVisualStyleBackColor = true;
             btnGenerate.Click += btnGenerate_Click;
             btnGenerate.MouseHover += btnGenerate_MouseHover;

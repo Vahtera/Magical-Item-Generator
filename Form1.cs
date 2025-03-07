@@ -25,7 +25,7 @@ namespace Magical_Item_Generator
         const int CreateCount = 20;
 
         List<string> ItemClasses = new List<string>();
-        string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance" };
+        string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance", "blade", "spike", "hatchet", "flail" };
         string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel", "earrings", "pin", "anklet", "wristband", "bracelet", "pendant", "necklace", "choker" };
         string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet", "corset", "belt" };
         string[] SetTypes = { "Vestments", "Clothes", "Attire", "Apparel", "Rags", "Garb", "Kit", "Outfit", "Trappings", "Instruments", "Gear", "Regalia", "Getup", "Ensemble", "Raiment", "Garments" };
