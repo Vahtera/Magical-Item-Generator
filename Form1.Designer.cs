@@ -32,17 +32,18 @@
             listBoxItems = new ListBox();
             btnClear = new Button();
             gBoxSettings = new GroupBox();
+            nudNumItems = new NumericUpDown();
             label3 = new Label();
             chkPotions = new CheckBox();
             chkMisc = new CheckBox();
             chkArmor = new CheckBox();
             chkWeapons = new CheckBox();
             label2 = new Label();
-            nudNumItems = new NumericUpDown();
             gBoxResults = new GroupBox();
             btnQuit = new Button();
             statusStrip = new StatusStrip();
             tooltipLabel = new ToolStripStatusLabel();
+            btnAbout = new Button();
             gBoxSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumItems).BeginInit();
             gBoxResults.SuspendLayout();
@@ -104,6 +105,14 @@
             gBoxSettings.Text = "Settings";
             gBoxSettings.Enter += gBoxSettings_Enter;
             gBoxSettings.MouseHover += gBoxSettings_MouseHover;
+            // 
+            // nudNumItems
+            // 
+            nudNumItems.Location = new Point(10, 37);
+            nudNumItems.Name = "nudNumItems";
+            nudNumItems.Size = new Size(46, 23);
+            nudNumItems.TabIndex = 0;
+            nudNumItems.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label3
             // 
@@ -182,16 +191,9 @@
             label2.Text = "Item Types";
             label2.Click += label2_Click;
             // 
-            // nudNumItems
-            // 
-            nudNumItems.Location = new Point(10, 37);
-            nudNumItems.Name = "nudNumItems";
-            nudNumItems.Size = new Size(46, 23);
-            nudNumItems.TabIndex = 0;
-            nudNumItems.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
             // gBoxResults
             // 
+            gBoxResults.Controls.Add(btnAbout);
             gBoxResults.Controls.Add(btnQuit);
             gBoxResults.Controls.Add(listBoxItems);
             gBoxResults.Controls.Add(btnClear);
@@ -228,6 +230,15 @@
             tooltipLabel.Name = "tooltipLabel";
             tooltipLabel.Size = new Size(39, 17);
             tooltipLabel.Text = "Ready";
+            // 
+            // btnAbout
+            // 
+            btnAbout.Location = new Point(624, 347);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(75, 23);
+            btnAbout.TabIndex = 5;
+            btnAbout.Text = "About";
+            btnAbout.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -268,5 +279,6 @@
         private Button btnQuit;
         private StatusStrip statusStrip;
         private ToolStripStatusLabel tooltipLabel;
+        private Button btnAbout;
     }
 }
