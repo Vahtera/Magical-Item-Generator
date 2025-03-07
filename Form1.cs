@@ -26,8 +26,8 @@ namespace Magical_Item_Generator
 
         List<string> ItemClasses = new List<string>();
         string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance" };
-        string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel" };
-        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet" };
+        string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel", "earrings", "pin", "anklet", "wristband", "bracelet", "pendant", "necklace", "choker" };
+        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet", "corset", "belt"  };
         string[] SetTypes = { "Vestments", "Clothes", "Attire", "Apparel", "Rags", "Garb", "Kit", "Outfit", "Trappings", "Instruments", "Gear", "Regalia", "Getup", "Ensemble", "Raiment", "Garments" };
         string[] VerbTypes = { "basic", "past", "ing" };
         string[] Combinations = { "AVN", "VERB", "AN", "VN", "N", "ADJ", "AV", "PROT", "NN", "ANN", "SLAY" };
@@ -111,13 +111,6 @@ namespace Magical_Item_Generator
         {
             List<string> types = new List<string>();
             ItemClasses = [];
-
-            /*
-            if (chkWeapons.Checked) { types = types.Concat(WeaponTypes).ToList(); }
-            if (chkArmor.Checked) { types = types.Concat(ArmorTypes).ToList(); }
-            if (chkMisc.Checked) { types = types.Concat(MiscTypes).ToList(); }
-            if (chkPotions.Checked) { types = types.Concat(Containers).ToList(); }
-            */
 
             if (chkWeapons.Checked) { ItemClasses.Add("weapon"); }
             if (chkArmor.Checked) { ItemClasses.Add("armor"); }
