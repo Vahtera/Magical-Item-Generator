@@ -219,6 +219,7 @@
             btnAbout.Text = "About";
             btnAbout.UseVisualStyleBackColor = true;
             btnAbout.Click += btnAbout_Click;
+            btnAbout.MouseHover += btnAbout_MouseHover;
             // 
             // btnQuit
             // 

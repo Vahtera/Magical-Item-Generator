@@ -433,5 +433,10 @@ namespace Magical_Item_Generator
         {
             btnGenerate.BackgroundImage = Properties.Resources.btnGenerate_up;
         }
+
+        private void btnAbout_MouseHover(object sender, EventArgs e)
+        {
+            SetStatus("Display About Dialog.");
+        }
     }
 }
