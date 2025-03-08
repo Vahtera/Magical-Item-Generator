@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\btnGenerate_down.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="MIG.ico" />
   </ItemGroup>
 
@@ -46,6 +50,10 @@
     <None Update="libAnna\english_verbs_past.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

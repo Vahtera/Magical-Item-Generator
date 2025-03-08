@@ -27,16 +27,16 @@ namespace Magical_Item_Generator
         List<string> ItemClasses = new List<string>();
         string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance", "blade", "spike", "hatchet", "flail" };
         string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel", "earrings", "pin", "anklet", "wristband", "bracelet", "pendant", "necklace", "choker" };
-        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breasplate", "chainmail", "helmet", "corset", "belt" };
+        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breastplate", "chainmail", "helmet", "corset", "belt" };
         string[] SetTypes = { "Vestments", "Clothes", "Attire", "Apparel", "Rags", "Garb", "Kit", "Outfit", "Trappings", "Instruments", "Gear", "Regalia", "Getup", "Ensemble", "Raiment", "Garments" };
         string[] VerbTypes = { "basic", "past", "ing" };
         string[] Combinations = { "AVN", "VERB", "AN", "VN", "N", "ADJ", "AV", "PROT", "NN", "ANN", "SLAY" };
         string[] KillingWord = { "murdering", "killing", "slaying", "slaughtering", "extermination", "beheading", "butchery", "assasination" };
         string[] DownfallWord = { "bane", "undoing", "ruin", "downfall", "destruction", "bane", "end", "ruination", "disgrace", "nemesis" };
-        string[] Containers = { "vial", "bottle", "potion", "flask", "ampoule", "ewer", "jar", "jug", "cup", "mug", "dose", "can", "chalice", "copita", "bowl", "goblet", "phial", "beaker", "carafe", "cruet", "decanter", "flagon", "gourd", "horn", "pewter", "porringer", "pot", "tankard", "tumbler", "urn", "vase", "vessel", "glass", "cask", "keg", "barrel", "canteen", "skin", "waterskin", "wineskin", "flagon" };
+        string[] Containers = { "vial", "bottle", "potion", "flask", "ampoule", "ewer", "jar", "jug", "cup", "mug", "dose", "can", "chalice", "copita", "bowl", "goblet", "phial", "beaker", "carafe", "cruet", "decanter", "flagon", "gourd", "horn", "pewter", "porringer", "pot", "tankard", "tumbler", "urn", "vase", "vessel", "glass", "cask", "keg", "barrel", "canteen", "waterskin", "flagon" };
         string[] Liquids = { "juice", "sap", "fluid", "solution", "broth", "goop", "nectar", "elixir", "resin", "infusion", "essence", "brew", "drink", "concotion", "mixture", "beverage", "extract", "jelly", "soup", "oil", "syrup", "tonic", "tincture", "serum", "dew", "salve", "cream", "paste", "ointment", "balm", "lotion", "gel", "emulsion" };
         string[] Qualities = { Common, Fine, Magical, Rare, Legendary, SetItem, Unique };
-        string[] LiquidQualities = { "Diluted", "Mild", "Moderate", "Potent", "Strong", "Very Strong", "Extreme" };
+        string[] LiquidQualities = { "Diluted", "Mild", "Moderate", "Potent", "Strong", "Rich", "Extreme" };
         string[] Adjectives = [];
         string[] Verbs = [];
         string[] Nouns = [];
@@ -183,7 +183,7 @@ namespace Magical_Item_Generator
             string Noun2 = PickRandom(Nouns);
             string Combination = PickRandom(Combinations);
             int RaritySeverity = random.Next(Qualities.Length);
-            string ItemQuality = String.Format("[{0,-11}] ", Qualities[RaritySeverity]);
+            string ItemQuality = String.Format("[{0,-9}] ", Qualities[RaritySeverity]);
             string SetType = PickRandom(SetTypes);
             string KillWord = PickRandom(KillingWord);
             string Downfall = PickRandom(DownfallWord);
@@ -202,7 +202,7 @@ namespace Magical_Item_Generator
             string PluralNoun = MakePlural(Noun);
             string PluralNoun2 = MakePlural(Noun2);
 
-            if (Containers.Any(ItemType.Contains)) { ItemQuality = String.Format("[{0,-11}] ", LiquidQualities[RaritySeverity]); }
+            if (Containers.Any(ItemType.Contains)) { ItemQuality = String.Format("[{0,-9}] ", LiquidQualities[RaritySeverity]); }
 
             switch (Combination)
             {
@@ -257,7 +257,7 @@ namespace Magical_Item_Generator
                 ItemOutput = ItemOutput + " " + Liquid.Capitalize();
             }
 
-            if (ItemQuality == String.Format("[{0,-11}] ", SetItem))
+            if (ItemQuality == String.Format("[{0,-9}] ", SetItem))
             {
                 string[] specialCases = { "AN", "ADJ", "AV", "VERB" };
                 SetName = $" ({SetType} of {SetTitle})";
@@ -422,6 +422,16 @@ namespace Magical_Item_Generator
         {
             AboutBox1 box = new AboutBox1();
             box.ShowDialog();
+        }
+
+        private void btnGenerate_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnGenerate.BackgroundImage = Properties.Resources.btnGenerate_down;
+        }
+
+        private void btnGenerate_MouseUp(object sender, MouseEventArgs e)
+        {
+            btnGenerate.BackgroundImage = Properties.Resources.btnGenerate_up;
         }
     }
 }
