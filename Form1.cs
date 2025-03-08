@@ -169,6 +169,7 @@ namespace Magical_Item_Generator
         }
         string PickRandom(string[] input)
         {
+            Random random = new Random();
             string result = string.Empty;
             result = input[random.Next(input.Length)];
             return result;
