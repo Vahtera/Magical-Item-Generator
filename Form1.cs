@@ -27,7 +27,7 @@ namespace Magical_Item_Generator
         List<string> ItemClasses = new List<string>();
         string[] WeaponTypes = { "sword", "axe", "wand", "dagger", "mace", "bow", "dirk", "battleaxe", "halberd", "javelin", "spear", "lance", "blade", "spike", "hatchet", "flail" };
         string[] MiscTypes = { "tome", "ring", "amulet", "sash", "robe", "cloak", "jewel", "earrings", "pin", "anklet", "wristband", "bracelet", "pendant", "necklace", "choker" };
-        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breastplate", "chainmail", "helmet", "corset", "belt" };
+        string[] ArmorTypes = { "shield", "armor", "bracers", "boots", "robe", "cloak", "breastplate", "chainmail", "helmet", "corset", "belt", "cap", "ringmail", "scalemail", "hat", "pants" };
         string[] SetTypes = { "Vestments", "Clothes", "Attire", "Apparel", "Rags", "Garb", "Kit", "Outfit", "Trappings", "Instruments", "Gear", "Regalia", "Getup", "Ensemble", "Raiment", "Garments" };
         string[] VerbTypes = { "basic", "past", "ing" };
         string[] Combinations = { "AVN", "VERB", "AN", "VN", "N", "ADJ", "AV", "PROT", "NN", "ANN", "SLAY" };
@@ -282,6 +282,8 @@ namespace Magical_Item_Generator
                 ItemTypes = SetItemTypes();
                 listBoxItems.Items.Add(GenerateItems(1));
             }
+            listBoxItems.SelectedIndex = listBoxItems.Items.Count - 1;
+            listBoxItems.SelectedIndex = -1;
         }
         private void CheckGeneratedTypes()
         {
